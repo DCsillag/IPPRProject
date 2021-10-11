@@ -14,3 +14,5 @@ cv.imshow("142_gray", gray)
 cv.imshow("Canny", edge)
 
 cv.waitKey(0)
+
+testing 
