@@ -20,11 +20,12 @@ def getImage(filenum):
     return cv.imread(DIR+str(filenum)+".jpg")
 
 # ShowPlateBox returns an image with the bounding box overlayed.
-def showPlateBox(filenum):
+def OverlayPlateBox(filenum):
     img = getImage(filenum)
     bounds = getPlateCords(filenum)
     cv.rectangle(img, (bounds[0],bounds[1]), (bounds[2], bounds[3]), (0,255,0), 3)
     return img
 
-cv.imshow("Car", showPlateBox(201))
-cv.waitKey(0)
+def showImage(filenum):
+    cv.imshow("Car", OverlayPlateBox(filenum))
+    cv.waitKey(0)
