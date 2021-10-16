@@ -26,6 +26,7 @@ def OverlayPlateBox(filenum):
     cv.rectangle(img, (bounds[0],bounds[1]), (bounds[2], bounds[3]), (0,255,0), 3)
     return img
 
+# Show the image using OpenCV
 def showImage(filenum):
     cv.imshow("Car", OverlayPlateBox(filenum))
     cv.waitKey(0)

@@ -14,4 +14,4 @@ import cv2 as cv
 
 # cv.waitKey(0)
 
-showImage(652)
+showImage(50)
