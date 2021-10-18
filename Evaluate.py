@@ -5,16 +5,17 @@ from LoadShowBoundingBox import *
 
 # Setting out a general structure to this document
 
-# Define a function that when given an image number, and a predicted coordinate location, return an IoU value
-def calculateOverlap(img_num, pred_cords):
-    return None
+# Define a function that when given an image number, and a predicted coordinate location, return a classification
+def imgAccuracy(img_num, pred_cords):
+    true_box = getPlateCords(img_num)
+    return calculateClassfication(true_box, pred_cords)
 
 # Define a function that evalutes the category of outcome.
-# If IoU > Threshold : True Positive, 
-# If IoU < Threshold : False Positive
-# If IoU 0 Then False Negative
+# If IoU > Threshold : True Positive, 1
+# If IoU < Threshold : False Positive 0
+# If IoU 0 Then False Negative 0
 def calculateClassfication(iou, thresh):
-    return None
+    return 1 if iou > thresh else 0
 
 # Define a function that when given two sets of coordinates, returns an IoU score.
 def calculateIoU(boxA, boxB):
@@ -33,7 +34,6 @@ def calculateIoU(boxA, boxB):
 
     # Compute and return intersection of union
     return innerArea / float(boxAArea + boxBArea - innerArea)
-
 
 # Test
 # print(calculateIoU(getPlateCords(0), [1200, 2000, 2000, 2300]))
