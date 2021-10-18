@@ -36,6 +36,6 @@ def calculateIoU(boxA, boxB):
     return innerArea / float(boxAArea + boxBArea - innerArea)
 
 # Test
-# print(calculateIoU(getPlateCords(0), [1200, 2000, 2000, 2300]))
+print(imgAccuracy(0, [1200, 2000, 2000, 2300]))
 
 
