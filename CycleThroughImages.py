@@ -3,7 +3,7 @@ import os
 DIR = r"dataset\\"
 
 # Update two values based on image ranges
-for i in range(20,25):
+for i in range(400,401):
     cv.imshow(str(i)+" IMG", cv.imread(DIR+str(i)+".jpg"))
     cv.waitKey(0)
 
