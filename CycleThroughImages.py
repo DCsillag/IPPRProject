@@ -1,9 +1,12 @@
 import cv2 as cv
 import os
-DIR = r"dataset\\"
+from time import sleep
+
+DIR = r"\\dataset\\"
+# DIR = './dataset/'
 
 # Update two values based on image ranges
-for i in range(400,401):
+for i in range(400,410):
     cv.imshow(str(i)+" IMG", cv.imread(DIR+str(i)+".jpg"))
     cv.waitKey(0)
 

@@ -4,6 +4,7 @@ import cv2 as cv
 import xml.etree.ElementTree as et
 
 DIR = r"dataset\\"
+#DIR = './dataset/'
 
 # Get Plate Cords Returns the coordinates of a number plate for the i-th image in the folder. 
 def getPlateCords(filenum):
@@ -13,7 +14,6 @@ def getPlateCords(filenum):
     for i in range(4):
         cords.append(int(root[6][4][i].text))
     return cords
-
 
 # Define a function to load an image based on its number
 def getImage(filenum):
@@ -30,3 +30,5 @@ def OverlayPlateBox(filenum):
 def showImage(filenum):
     cv.imshow("Car", OverlayPlateBox(filenum))
     cv.waitKey(0)
+
+showImage(400)
