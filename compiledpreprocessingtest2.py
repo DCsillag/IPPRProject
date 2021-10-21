@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
-import imutils as im
+import imutils as im  #helps with contours once detected
 
 #read in image from dataset and convert to grayscale
 img = cv.imread('./dataset/50.jpg')
@@ -35,7 +35,7 @@ plt.imshow(cv.cvtColor(lp, cv.COLOR_BGR2RGB))
 #crop segment
 (x,y) = np.where(mask==255) #find section of image that isnt blacked out, get set of coordinates that arent masked over
 (x1, y1) = (np.min(x), np.min(y)) #onecorner
-(X2, y2) = (np.max(x), np.max(y)) #opposing diagonal corner
+(x2, y2) = (np.max(x), np.max(y)) #opposing diagonal corner
 cropped_lp = gray[x1:x2+1, y1:y2+1] #added 1 to give us a little buffer
 
 plt.imshow(cv.cvtColor(cropped_lp, cv.COLOR_BGR2RGB))
