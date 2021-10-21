@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import imutils as im  #helps with contours once detected
 
 #read in image from dataset and convert to grayscale
-img = cv.imread('./dataset/50.jpg')
+img = cv.imread('./dataset/102.jpg')
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 plt.imshow(cv.cvtColor(gray,cv.COLOR_BGR2RGB))
 
@@ -40,6 +40,6 @@ cropped_lp = gray[x1:x2+1, y1:y2+1] #added 1 to give us a little buffer
 
 plt.imshow(cv.cvtColor(cropped_lp, cv.COLOR_BGR2RGB))
 
-
+plt.show() 
 
 
