@@ -2,9 +2,10 @@ import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
 import imutils as im
+from LoadShowBoundingBox import*
 
 #read in image from dataset and convert to grayscale
-img = cv.imread('./dataset/106.jpg')
+img = loadRandomImage('g')
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 plt.imshow(cv.cvtColor(gray,cv.COLOR_BGR2RGB))
 
