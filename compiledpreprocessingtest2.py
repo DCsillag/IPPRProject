@@ -40,6 +40,7 @@ cropped_lp = gray[x1:x2+1, y1:y2+1] #added 1 to give us a little buffer
 
 plt.imshow(cv.cvtColor(cropped_lp, cv.COLOR_BGR2RGB))
 
+plt.show();
 
 
 
