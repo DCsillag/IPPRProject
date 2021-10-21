@@ -29,14 +29,13 @@ for i, imgdata in enumerate(ImageDataset):
     imgdata[4] = calculateIoU(imgdata[2], imgdata[3])
     imgdata[5] = calculateClassfication(imgdata[4], IOU_THRESHOLD)
 
-
+# Present data in a Dataframe format to increase its readability in the terminal
 imageData_df = pd.DataFrame(ImageDataset, columns=['StringNumber','Number', 'trueBox','predBox','IOU','Classification'])
 print(imageData_df.head())
-
 print(imageData_df[(imageData_df.Number == 394)])
 print(imageData_df.Classification.value_counts())
 
-
+# Debug Code Only
 # num = 9
 # img = getImage(num)
 # predicted_cords = processImg(img)
