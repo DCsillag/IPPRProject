@@ -3,7 +3,7 @@ import numpy as np
 from LoadShowBoundingBox import showImage
 import cv2 as cv
 
-# img = cv.imread("dataset/142.jpg")
+#img = cv.imread("dataset/142.jpg")
 # gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
 # edge = cv.Canny(gray, 5,5)
@@ -14,4 +14,4 @@ import cv2 as cv
 
 # cv.waitKey(0)
 
-showImage(694)
+#showImage(60)

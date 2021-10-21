@@ -2,6 +2,8 @@ import os
 import numpy as np
 import cv2 as cv
 import xml.etree.ElementTree as et
+import pandas as pd
+import random
 
 DIR = r"dataset\\"
 #DIR = './dataset/'
@@ -31,4 +33,10 @@ def showImage(filenum):
     cv.imshow("Car", OverlayPlateBox(filenum))
     cv.waitKey(0)
 
-showImage(400)
+def loadRandomImage(type):
+    imageSelection = pd.read_csv("Img_categories.csv")
+    while True:
+        img_num = random.randint(0, 708)
+        if imageSelection.Category.iloc[img_num] == type:
+            break
+    return getImage(img_num)
