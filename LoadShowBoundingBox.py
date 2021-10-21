@@ -39,4 +39,4 @@ def loadRandomImage(type):
         img_num = random.randint(0, 708)
         if imageSelection.Category.iloc[img_num] == type:
             break
-    return img_num
+    return getImage(img_num)
