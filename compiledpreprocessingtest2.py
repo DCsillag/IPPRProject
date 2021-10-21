@@ -5,7 +5,7 @@ import imutils as im
 from LoadShowBoundingBox import*
 
 #read in image from dataset and convert to grayscale
-img = loadRandomImage('g')
+img = getImage(9)
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 plt.imshow(cv.cvtColor(gray,cv.COLOR_BGR2RGB))
 
@@ -32,11 +32,13 @@ mask = np.zeros(gray.shape, np.uint8)  #created blank mask (same shape as og gra
 lp = cv.drawContours(mask,[location],0,255,-1,) #draw contours in the image, want to draw location
 lp = cv.bitwise_and(img,img,mask=mask) #overlap mask, return segment of our iamge ie numberplate
 plt.imshow(cv.cvtColor(lp, cv.COLOR_BGR2RGB))
+plt.show()
 
 #crop segment
 (x,y) = np.where(mask==255) #find section of image that isnt blacked out, get set of coordinates that arent masked over
 (x1, y1) = (np.min(x), np.min(y)) #onecorner
 (x2, y2) = (np.max(x), np.max(y)) #opposing diagonal corner
+print(x1, y1, x2, y2)
 cropped_lp = gray[x1:x2+1, y1:y2+1] #added 1 to give us a little buffer
 
 plt.imshow(cv.cvtColor(cropped_lp, cv.COLOR_BGR2RGB))
