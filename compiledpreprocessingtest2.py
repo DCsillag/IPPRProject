@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import imutils as im
 
 #read in image from dataset and convert to grayscale
-img = cv.imread('./dataset/50.jpg')
+img = cv.imread('./dataset/102.jpg')
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 plt.imshow(cv.cvtColor(gray,cv.COLOR_BGR2RGB))
 
@@ -35,11 +35,12 @@ plt.imshow(cv.cvtColor(lp, cv.COLOR_BGR2RGB))
 #crop segment
 (x,y) = np.where(mask==255) #find section of image that isnt blacked out, get set of coordinates that arent masked over
 (x1, y1) = (np.min(x), np.min(y)) #onecorner
-(X2, y2) = (np.max(x), np.max(y)) #opposing diagonal corner
+(x2, y2) = (np.max(x), np.max(y)) #opposing diagonal corner
 cropped_lp = gray[x1:x2+1, y1:y2+1] #added 1 to give us a little buffer
 
 plt.imshow(cv.cvtColor(cropped_lp, cv.COLOR_BGR2RGB))
 
+plt.show();
 
 
 
