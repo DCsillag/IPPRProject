@@ -54,7 +54,7 @@ def z_score(coords_list):
     return z_scores
 
 #load reference images template
-image_template = cv2.imread('standardPlate.jpeg',0)
+image_template = cv2.imread('standardPlate2.png',0)
     
 #create array of just jpg images to loop through
 jpg_arr = []    
@@ -121,8 +121,7 @@ for file in random.sample(img_cats_arr_g, 25):
 
     #if matches is > our threshold then object is deteced
     if matches > threshold:
-        # cv2.rectangle(cur_image, (top_l_x,top_l_y), (bot_r_x,bot_r_y), (0,255,255),3)
-        for x, y in keypoints_found:
+        for x, y in cleaned_kps:
             cv2.circle(cur_image, (int(x),int(y)), radius=3, color=(0, 0, 255), thickness=-1)
         cv2.rectangle(cur_image, (min_x,min_y), (max_x,max_y), (0,255,255),3)
         cv2.putText(cur_image,'Licence Plate Detected',(50,50),cv2.FONT_HERSHEY_PLAIN,2,(0,0,255),2)
