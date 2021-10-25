@@ -5,7 +5,7 @@ import imutils as im
 from LoadShowBoundingBox import*
 
 #read in image from dataset and convert to grayscale
-img = getImage()
+img = getImage(148)
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 plt.imshow(cv.cvtColor(gray,cv.COLOR_BGR2RGB))
 
