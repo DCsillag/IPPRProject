@@ -18,6 +18,8 @@ df = pd.read_csv("Img_categories.csv")
 # Update the range field with the numbrs allocated to you.
 # Ensure you write in the field matching the image number, image number 
 # is on window and printed to terminal
+# Do not use any spaces!!!
 for i in range(0, 150):
     if df.Category.iloc[i] == 'g':
+        print(i)
         LB.showImage(i)
