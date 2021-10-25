@@ -49,7 +49,7 @@ text = pt.image_to_string(cropped_lp_binary, config=custom_config, lang='eng+ara
 text = re.sub('[^0-9] ', '', text)
 text = text.split()
 text = [re.sub('[^0-9]', '', w) for w in text]
-text = str(text[0]) + str(text[2])
+text = str(text[0]) + str(text[-1])
 print(text)
 cv.waitKey(0)
 
