@@ -10,7 +10,7 @@ pt.pytesseract.tesseract_cmd = r'C:\Users\danie\tesseract.exe'
 custom_config = r'--oem 3 --psm 6'
 
 #read in image from dataset and convert to grayscale
-img = getImage(394)
+img = getImage(89)
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
 # Noise removal with bilateral filter(removes noise while preserving edges) + find edges present
