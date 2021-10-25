@@ -41,7 +41,7 @@ def ShowPredBox(img, bounds, num):
 
 # Show the image using OpenCV
 def showImage(filenum):
-    cv.imshow("Car", OverlayPlateBox(filenum))
+    cv.imshow("Car"+str(filenum), OverlayPlateBox(filenum))
     cv.waitKey(0)
 
 

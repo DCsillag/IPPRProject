@@ -8,7 +8,7 @@ import sklearn as sk
 # Custom Code Imports 
 from Evaluate import *
 from LoadShowBoundingBox import *
-from ImagePipeline1 import *
+from ImagePipeline_Contour import *
 
 EXCLUDE_CATS = ['a', 'b', 't']
 IOU_THRESHOLD = 0.6
@@ -31,6 +31,7 @@ for i, imgdata in enumerate(ImageDataset):
 
 # Present data in a Dataframe format to increase its readability in the terminal
 imageData_df = pd.DataFrame(ImageDataset, columns=['StringNumber','Number', 'trueBox','predBox','IOU','Classification'])
+imageData_df['TrueClass'] = 1
 print(imageData_df.head())
 print(imageData_df[(imageData_df.Number == 394)])
 print(imageData_df.Classification.value_counts())
