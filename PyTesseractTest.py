@@ -10,7 +10,7 @@ pt.pytesseract.tesseract_cmd = r'C:\Users\danie\tesseract.exe'
 custom_config = r'--oem 3 --psm 6'
 
 #read in image from dataset and convert to grayscale
-img = getImage(394)
+img = getImage(89)
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
 # Noise removal with bilateral filter(removes noise while preserving edges) + find edges present
@@ -49,7 +49,7 @@ text = pt.image_to_string(cropped_lp_binary, config=custom_config, lang='eng+ara
 text = re.sub('[^0-9] ', '', text)
 text = text.split()
 text = [re.sub('[^0-9]', '', w) for w in text]
-text = str(text[0]) + str(text[2])
+text = str(text[0]) + str(text[-1])
 print(text)
 cv.waitKey(0)
 

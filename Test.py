@@ -1,17 +1,19 @@
 import pandas as pd
 import numpy as np
-from LoadShowBoundingBox import showImage
+from LoadShowBoundingBox import *
+import ImagePipeline_Contour as im
 import cv2 as cv
 
-#img = cv.imread("dataset/142.jpg")
-# gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+from ImagePipeline_sift import processImg as processImg_sift
 
-# edge = cv.Canny(gray, 5,5)
+num = 394
+img = getImage(num)
+ref_img = cv.imread('standardPlate.jpeg')
+pred_cords = processImg_sift(img, ref_img)
 
-# cv.imshow("142", img)
-# cv.imshow("142_gray", gray)
-# cv.imshow("Canny", edge)
+cv.imshow('Sift_Predict', ShowPredBox(img, pred_cords, num))
 
-# cv.waitKey(0)
+
+cv.waitKey(0)
 
 #showImage(60)
