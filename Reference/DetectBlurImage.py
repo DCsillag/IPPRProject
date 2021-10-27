@@ -8,6 +8,7 @@ laplician_var = cv.Laplacian(img, cv.CV_64F).var() #laplician is a filter for ke
 
 
 if laplician_var < 25:
+    # Do whatever to adjust it.
     print("Low Quality Image")
 
 
