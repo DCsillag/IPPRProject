@@ -20,12 +20,14 @@ ref_img = cv.imread('standardPlate.jpeg')
 EXCLUDE_CATS = []
 IOU_THRESHOLD = 0.6
 Image_Info = pd.read_csv('Img_categories.csv')
+Image_Info.fillna(0, inplace=True)
 
 # Filtered by excluded categories, create the sub_sample of the dataset.
 ImageDataset = []
 for i in range(Image_Info.shape[0]):
     if Image_Info.Category.iloc[i] not in EXCLUDE_CATS:
-        ImageDataset.append([str(i),i,0,0,0,0,1,0,0,0])
+        platelabel = str(int(Image_Info.PlateLabel.iloc[i]))
+        ImageDataset.append([str(i),i,0,0,0,0,1,0,platelabel,0])
 
 
 # Retrieve the true and predicted bounding box for all images that match the classification condition.
@@ -41,7 +43,7 @@ for i, imgdata in enumerate(ImageDataset):
     imgdata[5] = calculateClassfication(imgdata[4], IOU_THRESHOLD)
     if imgdata[5] == 1:
         croppedImage = cropImage(img, imgdata[3])
-        imgdata[7] = getPlateChars(croppedImage)
+        imgdata[7] = str(getPlateChars(croppedImage))
         if imgdata[7] == imgdata[8]:
             imgdata[9] = 1
     
@@ -52,6 +54,7 @@ imageData_df = pd.DataFrame(ImageDataset,
 )
 print(imageData_df.head())
 print(imageData_df.Detected.value_counts())
+imageData_df.to_csv("ModelOutput.csv")
 print('')
 # At this stage all predictive activities are completed, now we can evaluate according to evaluation techniques described.
 print('Accuracy metrics for the license plate localisation problem') 
