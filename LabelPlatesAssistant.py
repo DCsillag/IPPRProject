@@ -7,10 +7,11 @@ import LoadShowBoundingBox as LB
 # Write plate details here: 
 # https://docs.google.com/spreadsheets/d/1SwTrOaLj07ywT8s3cRcgXeF4jyV4ajHFxo9JfRYogvc/edit#gid=1337144092
 # Daniel 0-150
-# Emily Reed 150-300
+# Nicky Nguyen 150-300
 # Felly Li 300-450
 # Jordan Roberts 450-600
 # Lisa Chan 600-708
+ 
 
 
 df = pd.read_csv("Img_categories.csv")

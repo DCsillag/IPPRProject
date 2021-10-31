@@ -1,5 +1,6 @@
 # Import Standard Python Libraries
 import cv2 as cv
+from matplotlib import image
 import numpy as np
 import matplotlib.pyplot as plt
 import imutils as im
@@ -38,3 +39,4 @@ def processImg(img):
     (x,y) = np.where(mask==255)
     # Note this was reversed to match input data dimensions from xml
     return [np.min(y), np.min(x), np.max(y), np.max(x)]
+
