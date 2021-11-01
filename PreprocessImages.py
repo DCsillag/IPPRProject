@@ -12,3 +12,5 @@ def sharpenImage(img):
         laplician_var = cv.Laplacian(img, cv.CV_64F).var()
     
     return img
+
+# add a function for resize
