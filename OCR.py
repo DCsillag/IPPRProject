@@ -4,7 +4,7 @@ import numpy as np
 import re
 
 # Define Path for Tesseract.exe, will depend on local user
-pt.pytesseract.tesseract_cmd = r'C:\Users\lisac\AppData\Local\Programs\PythonCodingPack\Tesseract-OCR\tesseract.exe'
+pt.pytesseract.tesseract_cmd = r'C:\Users\danie\tesseract.exe'
 custom_config = r'--oem 3 --psm 6'
 
 # Given a cropped image of the license plate, return tesseract image-to-string detection prediction
