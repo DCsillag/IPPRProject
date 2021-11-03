@@ -14,11 +14,11 @@ from ImagePipeline_sift import processImg as processImg_sift
 from OCR import *
 from PreprocessImages import *
 
-# Reference plate, for Sift predict
+# Code Parameters: Ref_img for SIFT Prediction, Exclude_cats are the image category, IoU Threshold
 ref_img = cv.imread('Reference 2/standardPlate2.png')
-
 EXCLUDE_CATS = []
 IOU_THRESHOLD = 0.6
+
 Image_Info = pd.read_csv('Img_categories.csv')
 Image_Info.fillna(0, inplace=True)
 
