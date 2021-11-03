@@ -4,15 +4,15 @@ import numpy as np
 img = cv.imread('dataset/285.jpg', cv.IMREAD_GRAYSCALE)
 
 
-laplician_var = cv.Laplacian(img, cv.CV_64F).var() #laplician is a filter for kernal convolution method
+laplacian_var = cv.Laplacian(img, cv.CV_64F).var() #laplician is a filter for kernal convolution method
 
 
-if laplician_var < 25:
+if laplacian_var < 25:
     # Do whatever to adjust it.
     print("Low Quality Image")
 
 
-print(laplician_var)  #low vlaue = low sharpness(blur)
+print(laplacian_var)  #low vlaue = low sharpness(blur)
 
 
 cv.imshow('285', img)
@@ -22,7 +22,7 @@ sharpen = cv.filter2D(img, -1, sharpen_kernel)
 
 cv.imshow('sharpen', sharpen)
 
-#cv.imshow('laplician', laplician)
+#cv.imshow('laplacian', laplacian)
 cv.waitKey(0)
 cv.destroyAllWindows()
 

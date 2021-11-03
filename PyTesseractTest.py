@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 import imutils as im
 import re
 
-#pt.pytesseract.tesseract_cmd = r'C:\Users\danie\tesseract.exe'
-pt.pytesseract.tesseract_cmd = r'C:\Users\lisac\AppData\Local\Programs\PythonCodingPack\Tesseract-OCR\tesseract.exe'
+pt.pytesseract.tesseract_cmd = r'C:\Users\danie\tesseract.exe'
+
 custom_config = r'--oem 3 --psm 6'
 
 #read in image from dataset and convert to grayscale
