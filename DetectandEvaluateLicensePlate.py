@@ -14,11 +14,11 @@ from ImagePipeline_sift import processImg as processImg_sift
 from OCR import *
 from PreprocessImages import *
 
-# Reference plate, for Sift predict
-ref_img = cv.imread('standardPlate.jpeg')
-
+# Code Parameters: Ref_img for SIFT Prediction, Exclude_cats are the image category, IoU Threshold
+ref_img = cv.imread('Reference 2/standardPlate2.png')
 EXCLUDE_CATS = []
 IOU_THRESHOLD = 0.6
+
 Image_Info = pd.read_csv('Img_categories.csv')
 Image_Info.fillna(0, inplace=True)
 
@@ -38,7 +38,7 @@ for i, imgdata in enumerate(ImageDataset):
     img = getImage(imgdata[1])
     img = sharpenImage(img)
     imgdata[2] = getPlateCords(imgdata[1])
-    imgdata[3] = processImg_contour(img)
+    imgdata[3] = processImg_sift(img, ref_img)
     imgdata[4] = calculateIoU(imgdata[2], imgdata[3])
     imgdata[5] = calculateClassfication(imgdata[4], IOU_THRESHOLD)
     if imgdata[5] == 1:
@@ -54,7 +54,7 @@ imageData_df = pd.DataFrame(ImageDataset,
 )
 print(imageData_df.head())
 print(imageData_df.Detected.value_counts())
-imageData_df.to_csv("ModelOutput.csv")
+imageData_df.to_csv("ModelOutput_SIFT.csv")
 print('')
 # At this stage all predictive activities are completed, now we can evaluate according to evaluation techniques described.
 print('Accuracy metrics for the license plate localisation problem') 
@@ -79,13 +79,12 @@ print(f'OCR Precision Score {np.round(precision_score(imageData_df["TrueClass"],
 
 print(f'OCR Recall Score {np.round(accuracy_score(imageData_df["TrueClass"], imageData_df["txt_corr"]),4)}')
 
-
-
-
-
-
-
-
+# Display a single image for example
+img = getImage(394)
+img = ShowPredBox(img, imageData_df['predBox'].iloc[394], 394)
+img = cv.putText(img, f'PredictedText {imageData_df.Pred_text.iloc[394]}', (0,300), cv.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), thickness=3)
+cv.imshow("Example", img)
+cv.waitKey(0)
 
 
 # Debug Code Only
